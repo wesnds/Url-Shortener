@@ -11,7 +11,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 //const URI = process.env.URI;
 
-const URI = "mongodb+srv://wesnds:ZvVSGFRSXlJfyAoc@cluster0.1ntgy6t.mongodb.net/?retryWrites=true&w=majority"
+const URI = process.env.URI;
 mongoose.connect(URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
