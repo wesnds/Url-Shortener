@@ -46,12 +46,12 @@ app.post("/api/shorturl", function(req, res) {
         .then(data => {
           new urlModel({
             id: data.length + 1,
-            url: req.body.url
+            url: url
           })
             .save()
             .then(() => {
               res.json({
-                original_url: req.body.url,
+                original_url: url,
                 short_url: data.length + 1
               });
             })
@@ -60,10 +60,10 @@ app.post("/api/shorturl", function(req, res) {
             });
         });
     }
-  });
+  }); 
 });
 
-//get
+
 app.get("/api/shorturl/:id", function(req, res) {
   urlModel
     .find({ id: req.params.id })
